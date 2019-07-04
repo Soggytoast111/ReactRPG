@@ -13,7 +13,7 @@ charImg: "/assets/images/king.gif"
   charName: "Negative",
   charImg: "/assets/images/negman.gif"
 },{
-  charName: "squidward",
+  charName: "Trump",
   charImg: "/assets/images/trump.gif"
 }
 ]
