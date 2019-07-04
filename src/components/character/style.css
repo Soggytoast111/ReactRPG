@@ -1,0 +1,123 @@
+.character {
+    float: left;
+    background-color: green;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-style: groove;
+    border-width: 5px;
+    border-color: purple;
+}
+
+.characterFullImage {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    right: 0px;
+}
+
+.title {
+    position: absolute;
+    top: -35px;
+    left: 15px;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+}
+
+.iconbox {
+    height: 35px;
+    width: 35px;
+    z-index: 200;
+    position: absolute;
+    top: 150px;
+    left: 15px;
+    border-style: outset;
+    border-color: gray;
+    border-width: 2px;
+    background-color: #4b9dcc;
+}
+
+.iconboxT {
+    height: 30px;
+    width: 35px;
+    z-index: 200;
+    position: absolute;
+    top: 150px;
+    left: 15px;
+    border-style: outset;
+    border-color: gray;
+    border-width: 2px;
+    color: yellow;
+    font-style: bold;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.iconbox2 {
+    height: 35px;
+    width: 35px;
+    z-index: 200;
+    position: absolute;
+    top: 150px;
+    left: 70px;
+    border-style: outset;
+    border-color: gray;
+    border-width: 2px;
+    background-color: #bd3c3c;
+}
+
+.iconbox2T {
+    height: 30px;
+    width: 35px;
+    z-index: 200;
+    position: absolute;
+    top: 150px;
+    left: 70px;
+    border-style: outset;
+    border-color: gray;
+    border-width: 2px;
+    color: yellow;
+    font-style: bold;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.iconbox3 {
+    height: 35px;
+    width: 35px;
+    z-index: 200;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-style: outset;
+    border-color: gray;
+    border-width: 2px;
+    background-color: #bd3c3c;
+}
+
+.iconbox3T {
+    height: 29px;
+    width: 35px;
+    z-index: 200;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-style: outset;
+    border-color: gray;
+    border-width: 2px;
+    color: yellow;
+    font-style: bold;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 6px;
+}
+
