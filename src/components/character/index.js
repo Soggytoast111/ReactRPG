@@ -12,6 +12,8 @@ class Character extends React.Component {
         id={character.id}
         charName={character.charName}
         charImg={character.charImg}
+        clickTrack={this.props.clickTrack}
+        character={character}
       />
     ))
   }

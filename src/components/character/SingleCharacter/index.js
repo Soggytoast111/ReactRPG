@@ -4,15 +4,13 @@ import Velocity from 'velocity-animate';
 
 class SingleCharacter extends React.Component {
     animateDiv(e) {
-        Velocity(document.getElementById(this.props.id), { opacity: 0.5 }, 1000)
-        console.log(this.props) 
     }   
    
 render () {
     console.log("props below (singlechar):")
     console.log(this.props)
     return (
-    <div className="character" id={this.props.id} onClick={this.animateDiv.bind(this)}>
+    <div className="character" id={this.props.id} onClick={this.props.clickTrack.bind(this, this.props.id)}>
     <div className="title">{this.props.charName}</div>
     <img src={this.props.charImg} className="characterFullImage"></img>
     <div className="iconbox"><img className="icon" src="/assets/images/sword.png"></img></div>
