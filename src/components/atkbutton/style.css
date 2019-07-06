@@ -1,0 +1,9 @@
+#attackButton {
+    height: 30px;
+    width: 75px;
+    background-color: red;
+    color: white;
+    border-radius: 0px;
+    padding-top: 5px;
+    text-align: center;
+}

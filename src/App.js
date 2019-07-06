@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Character from './components/character'
+import AttackButton from './components/atkbutton'
+import Renderer from './components/renderer'
 import Velocity from 'velocity-animate';
 
 class App extends React.Component{
@@ -13,6 +15,9 @@ class App extends React.Component{
     atkGrow: 0,
     enemyAttack: 0,
     enemyHealth: 0,
+    enemiesKilled: 0,
+    disableAttackButton: 0,
+    renderProp: 0,
     testprop: [{
       id: 1,
       charName: "Squidward",
@@ -162,12 +167,37 @@ class App extends React.Component{
 
   }
 
+  atkButton = () => {
+    if (this.state.disableAttackButton == 0){
+      this.state.disableAttackButton = 1
+      setTimeout(() => {this.state.disableAttackButton=0}, 3000)
+      this.state.playerHealth -= this.state.enemyHealth
+      this.state.enemyHealth -= this.state.playerAttack
+      this.state.playerAttack += this.state.atkGrow
+      
+      this.state.testprop[this.state.selectedChar-1].health = this.state.playerHealth
+      this.state.testprop[this.state.selectedEnemy-1].health = this.state.enemyHealth
+      this.state.testprop[this.state.selectedChar-1].atk = this.state.playerAttack
+
+      console.log("pressed atkbutton!!!")
+      console.log(this.state)
+      this.state.renderProp += 1
+    }
+    
+  }
+
   render() {
     return(
-        <Character 
-          characters={this.state.testprop}
-          clickTrack={this.clickTrack} 
-        />)
+    <>
+      <Character 
+        characters={this.state.testprop}
+        clickTrack={this.clickTrack} 
+        renderProp={this.state.renderProp}
+      />
+      <AttackButton
+        atkButton={this.atkButton.bind(this)}
+        />
+    </>)
   }
 }
 
