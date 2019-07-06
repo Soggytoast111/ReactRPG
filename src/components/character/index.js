@@ -9,8 +9,18 @@ class Character extends React.Component {
     this.state = {
       renderProp: 0
     }
+    this.SingleCharacterRef = React.createRef()
   }
   
+  updateStats = (id, newAttack, newHealth) => {
+    var characterRef = id
+    this.refs['characterDiv3'].updateStats(newAttack, newHealth)
+    
+    console.log("Here is the new passed items")
+    console.log(newAttack, newHealth)
+}
+
+
   render(){
     console.log("props below (allchars):")
     console.log(this.props)
@@ -25,7 +35,7 @@ class Character extends React.Component {
         health={character.health}
         attack={character.atk}
         defense={character.def}
-        render={character.renderProp}
+        ref={"characterDiv" + character.id}
       />
     ))
   }

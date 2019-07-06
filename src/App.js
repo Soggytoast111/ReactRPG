@@ -2,11 +2,13 @@ import React from 'react';
 import './App.css';
 import Character from './components/character'
 import AttackButton from './components/atkbutton'
-import Renderer from './components/renderer'
 import Velocity from 'velocity-animate';
 
 class App extends React.Component{
-  state = {
+  constructor(props){
+    super(props)
+    this.charactersRef = React.createRef()
+    this.state = {
     gameState: 0,
     selectedChar: 0,
     selectedEnemy: 0,
@@ -52,7 +54,7 @@ class App extends React.Component{
       atkGrow: 5
     }
     ]
-  }
+  }}
   clickTrack = (id) => {
     //Velocity(document.getElementById(id), { opacity: 0.5 }, 1000)
     // var advanceGameState = {
@@ -181,7 +183,9 @@ class App extends React.Component{
 
       console.log("pressed atkbutton!!!")
       console.log(this.state)
-      this.state.renderProp += 1
+      
+      this.charactersRef.current.updateStats(2, 125, 81)
+
     }
     
   }
@@ -193,6 +197,7 @@ class App extends React.Component{
         characters={this.state.testprop}
         clickTrack={this.clickTrack} 
         renderProp={this.state.renderProp}
+        ref={this.charactersRef}
       />
       <AttackButton
         atkButton={this.atkButton.bind(this)}
