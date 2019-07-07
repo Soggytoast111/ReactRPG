@@ -13,12 +13,9 @@ class Character extends React.Component {
   }
   
   updateStats = (id, newAttack, newHealth) => {
-    var characterRef = id
-    this.refs['characterDiv3'].updateStats(newAttack, newHealth)
-    
-    console.log("Here is the new passed items")
-    console.log(newAttack, newHealth)
-}
+    var characterRef = 'characterDiv' + id
+    this.refs[characterRef].updateStats(newAttack, newHealth)
+  }
 
 
   render(){

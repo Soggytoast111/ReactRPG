@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Character from './components/character'
 import AttackButton from './components/atkbutton'
+import Jumbotron from './components/jumbotron'
 import Velocity from 'velocity-animate';
 
 class App extends React.Component{
@@ -138,7 +139,7 @@ class App extends React.Component{
     else if (this.state.gameState == 1 && this.state.selectedChar != id) {
       this.state.selectedEnemy = id
       this.state.enemyHealth = this.state.testprop[id-1].health
-      this.state.enemyAttack = this.state.testprop[id-1].atk
+      this.state.enemyAttack = this.state.testprop[id-1].def
       this.state.gameState++
       //TODO --- Animate Chars to correct position after selection
       //
@@ -173,26 +174,25 @@ class App extends React.Component{
     if (this.state.disableAttackButton == 0){
       this.state.disableAttackButton = 1
       setTimeout(() => {this.state.disableAttackButton=0}, 3000)
-      this.state.playerHealth -= this.state.enemyHealth
+      this.state.playerHealth -= this.state.enemyAttack
       this.state.enemyHealth -= this.state.playerAttack
       this.state.playerAttack += this.state.atkGrow
       
       this.state.testprop[this.state.selectedChar-1].health = this.state.playerHealth
       this.state.testprop[this.state.selectedEnemy-1].health = this.state.enemyHealth
       this.state.testprop[this.state.selectedChar-1].atk = this.state.playerAttack
-
-      console.log("pressed atkbutton!!!")
-      console.log(this.state)
       
-      this.charactersRef.current.updateStats(2, 125, 81)
-
+      this.charactersRef.current.updateStats(this.state.selectedChar, this.state.playerAttack, this.state.playerHealth)
+      this.charactersRef.current.updateStats(this.state.selectedEnemy, this.state.enemyAttack, this.state.enemyHealth)
     }
-    
   }
 
   render() {
     return(
     <>
+      <Jumbotron 
+        ref='jumbotronRef'
+      />
       <Character 
         characters={this.state.testprop}
         clickTrack={this.clickTrack} 
