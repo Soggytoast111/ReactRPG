@@ -175,6 +175,9 @@ class App extends React.Component{
   }
 
   atkButton = () => {
+    if (this.state.disableAttackButton == 1) {
+      console.log("attack disabled!")
+    }
     if (this.state.disableAttackButton == 0){
       this.state.disableAttackButton = 1
       setTimeout(() => {this.state.disableAttackButton=0}, 3000)
@@ -196,7 +199,7 @@ class App extends React.Component{
         this.charactersRef.current.hideCharacter(this.state.selectedEnemy)
         this.state.gameState++
         this.state.disableAttackButton = 1
-        setTimeout(() => {this.state.disableAttackButton=1}, 3015)
+        setTimeout(() => {this.state.disableAttackButton=1}, 3005)
         if(this.state.gameState == 7) {
           this.updatejumbotext("You Win!")
         } else {
