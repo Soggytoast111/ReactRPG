@@ -17,6 +17,10 @@ class Character extends React.Component {
     this.refs[characterRef].updateStats(newAttack, newHealth)
   }
 
+  hideCharacter = (id) => {
+    var characterRef = 'characterDiv' + id
+    this.refs[characterRef].hideCharacter()
+  }
 
   render(){
     console.log("props below (allchars):")

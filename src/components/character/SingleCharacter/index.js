@@ -14,17 +14,13 @@ class SingleCharacter extends React.Component {
             attack: newAttack,
             health: newHealth
         })
-        console.log("SingleCharacterNewState!")
-        console.log(this.state)
-        console.log("newAttack: " + newAttack)
-        console.log("newHealth: " + newHealth)
+    }
+
+    hideCharacter = () => {
+        Velocity(document.getElementById(this.props.id), { opacity: 0.15 }, 1000)
     }
 
     render () {
-        console.log("props below (singlechar):")
-        console.log(this.props)
-        console.log("state below!")
-        console.log(this.state)
         return (
         <div className="character" id={this.props.id} onClick={this.props.clickTrack.bind(this, this.props.id)}>
         <div className="title">{this.props.charName}</div>

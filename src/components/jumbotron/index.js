@@ -4,7 +4,7 @@ class Jumbotron extends React.Component {
     constructor(props){
       super(props)
       this.state = {
-        jumbotronText: '---This will be where notifications go.---'
+        jumbotronText: 'Select your character!'
       }
     }
     updateText = (newText) => {
